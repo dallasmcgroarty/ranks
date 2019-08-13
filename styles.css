@@ -1,10 +1,13 @@
 
 #title {
     font-size: 120px;
+    font-family: 'Carter One', cursive;
 }
 
 #sub-title {
     margin-bottom: 50px;
+    font-family: 'Bangers', cursive;
+    font-size: 34px;
 }
 
 .player-name-input, .player-score-input{
