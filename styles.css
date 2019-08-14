@@ -1,4 +1,3 @@
-
 #title {
     font-size: 120px;
     font-family: 'Carter One', cursive;
@@ -54,6 +53,7 @@
     float: none;
     margin-bottom: 10px;
     width: 80%;
+    animation: slide-down 1.0s ease;
 }
 .card-body {
     font-size: 100px;
@@ -79,4 +79,28 @@
 #plus {
     width:20%;
     margin-left: 50px;
+}
+
+#clear-all{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 30px;
+    margin-top: 50px;
+}
+
+#clear-all-btn {
+    width: 80%;
+    font-size: 50px;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

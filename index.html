@@ -20,10 +20,18 @@
             <input type="text" class="form-control" id="player-name" placeholder="Enter player name">
         </div>
         <div class="player-score-input">
-            <input type="number" class="form-control" id="player-score" placeholder="Enter player score">
+            <input type="number" class="form-control" id="player-score" value="0">
         </div>
-        <button type="submit" class="btn btn-dark" id="new-player">Add New player</button>
+        <button type="submit" class="btn btn-dark" id="new-player">Add New Player</button>
     </form>
+    <div class="sticky-bottom" id="clear-all">
+        <button type="button" class="btn btn-danger" id="clear-all-btn">Delete All Players</button>
+    </div>
+    <!--
+    <div class="clear-all-popup">
+        <button type="button" class="btn btn-danger" id="clear-all-popup-btn">Are You Sure?</button>
+    </div>
+    -->
     <!--
     <div class="card">
         <div class="card-body">
