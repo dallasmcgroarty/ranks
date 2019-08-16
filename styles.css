@@ -38,6 +38,7 @@
 #minus {
     width:20%;
     margin-right: 50px;
+    height: auto;
 }
 
 #functions {
@@ -70,6 +71,7 @@
     border-style: none;
     font-size: 100px;
     width: 200px;
+    height: auto;
     text-align: center;
     color: transparent;
     text-shadow: 0 0 0 rgb(0, 0, 0);
@@ -80,6 +82,7 @@
 #plus {
     width:20%;
     margin-left: 50px;
+    height: auto;
 }
 
 #clear-all{
