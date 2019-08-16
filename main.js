@@ -13,6 +13,15 @@
     clearAllPlayers();
   });
 
+  document.getElementById('plus').addEventListener('click', function (event) {
+    event.preventDefault();
+    addScore();
+  });
+
+  document.getElementById('minus').addEventListener('click', function (event) {
+    event.preventDefault();
+    subtractScore();
+  });
   /*
   // manages click events outside of the cards
   document.addEventListener('click', function (event) {
@@ -28,21 +37,6 @@
     }
   });
   */
-/*
-  let cards = document.querySelectorAll('.card');
-
-  cards.forEach(function (card) {
-    card.addEventListener('click', function (event) {
-      event.preventDefault();
-      card.style.width = '90%';
-      card.style.height = '202px';
-    });
-    card.addEventListener('focusout', function (event) {
-      event.target.style.width = '80%';
-      card.style.height = '160px';
-    });
-  });
-  */
 })(window);
 
 // Add new player function. Checks if user entered info and creates a new card
@@ -51,7 +45,7 @@ function addNewPlayer (name, score) {
   var newCard = document.createElement('div');
   newCard.setAttribute('class', 'card');
   // create new card with player name as id and score as id, ex: id='Tom', id='Tom-score'
-  newCard.innerHTML = "<div class='card-body'> <div id=" + name + '>' + name + '</div> <div id=' + name + '-score>' + score.toString() + '</div></div>';
+  newCard.innerHTML = "<div class='card-body'> <div id=" + name + '>' + name + '</div> <div id=' + name + '-score>' + score + '</div></div>';
   target.parentNode.insertBefore(newCard, target);
 
   // adding event listener to manage which players is currently selected
@@ -79,8 +73,7 @@ function addToStorage (name, score) {
   // player object to hold player name and score
   const player = {
     userName: name,
-    userScore: score,
-    selected: false
+    userScore: score
   };
   if (typeof (Storage) !== 'undefined') {
     window.localStorage.setItem(name, JSON.stringify(player));
@@ -131,10 +124,64 @@ function clearAllPlayers () {
   }
 }
 
-function subtractScore (name, score) {
+// subtract user score with score increment
+function subtractScore () {
+  if (!document.querySelector('.card')) {
+    console.log('No players added');
+    return;
+  }
+  var target = '';
+  var cards = document.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++) {
+    if (cards[i].style.width === '90%') {
+      target = cards[i].innerText.replace(/[0-9]/g, '');
+      target = target.slice(0, -1);
+      console.log(target);
+      break;
+    } else {
+      console.log('No player seleced');
+      return;
+    }
+  }
+  var scoreIncrement = Number(document.getElementById('score-update').value);
+  var curScore = Number(document.getElementById(target + '-score').innerText);
+  // subtract from total
+  var totalScore = curScore - scoreIncrement;
 
+  document.getElementById(target + '-score').innerText = totalScore;
+  var player = JSON.parse(localStorage.getItem(target));
+  player['userScore'] = totalScore;
+  localStorage.setItem(target, JSON.stringify(player));
+  console.log(target + 's score was updated');
 }
 
-function addScore (name, score) {
+// add score increment to user score
+function addScore () {
+  if (!document.querySelector('.card')) {
+    console.log('No players added');
+    return;
+  }
+  var target = '';
+  var cards = document.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++) {
+    if (cards[i].style.width === '90%') {
+      target = cards[i].innerText.replace(/[0-9]/g, '');
+      target = target.slice(0, -1);
+      console.log(target);
+      break;
+    } else {
+      console.log('No player selected');
+      return;
+    }
+  }
+  var scoreIncrement = Number(document.getElementById('score-update').value);
+  var curScore = Number(document.getElementById(target + '-score').innerText);
+  // add to total
+  var totalScore = curScore + scoreIncrement;
 
+  document.getElementById(target + '-score').innerText = totalScore;
+  var player = JSON.parse(localStorage.getItem(target));
+  player['userScore'] = totalScore;
+  localStorage.setItem(target, JSON.stringify(player));
+  console.log(target + 's score was updated to');
 }
