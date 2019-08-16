@@ -30,7 +30,7 @@
     display: flex;
     margin: 0 auto;
     float: none;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     width: 80%;
     justify-content: center;
     font-size: 50px;
@@ -56,9 +56,10 @@
     animation: slide-down 1.0s ease;
 }
 .card-body {
-    font-size: 100px;
+    font-size: 80px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .player-name {

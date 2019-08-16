@@ -1,4 +1,5 @@
 // Set up event listeners and functions needed to run when the window is shown
+
 (function (window) {
   retrieveAllPlayers();
 
@@ -11,6 +12,34 @@
     event.preventDefault();
     clearAllPlayers();
   });
+
+  document.addEventListener('click', function (event) {
+    if (event && !event.target.closest('.card')) {
+      console.log('clicked out');
+      var cards = document.querySelectorAll('.card');
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].style.width === '90%') {
+          cards[i].style.width = '80%';
+          cards[i].style.height = '160px';
+        }
+      }
+    }
+  });
+/*
+  let cards = document.querySelectorAll('.card');
+
+  cards.forEach(function (card) {
+    card.addEventListener('click', function (event) {
+      event.preventDefault();
+      card.style.width = '90%';
+      card.style.height = '202px';
+    });
+    card.addEventListener('focusout', function (event) {
+      event.target.style.width = '80%';
+      card.style.height = '160px';
+    });
+  });
+  */
 })(window);
 
 // Add new player function. Checks if user entered info and creates a new card
@@ -22,6 +51,36 @@ function addNewPlayer (name, score) {
   newCard.innerHTML = "<div class='card-body'> <div id=" + name + '>' + name + '</div> <div id=' + name + '-score>' + score.toString() + '</div></div>';
   target.parentNode.insertBefore(newCard, target);
 
+  // adding event listener to manage which players is currently selected
+  newCard.addEventListener('click', function (event) {
+    event.preventDefault();
+    var selected = true;
+    var cards = document.querySelectorAll('.card');
+    for (var i = 0; i < cards.length; i++) {
+      if (cards[i].style.width === '90%') {
+        console.log('deselecting player');
+        cards[i].style.width = '80%';
+        cards[i].style.height = '160px';
+        selected = false;
+        break;
+      }
+    }
+    if (selected) {
+      console.log(name + ' selected');
+      newCard.style.width = '90%';
+      newCard.style.height = '202px';
+    } else {
+
+    }
+  });
+  /*
+  newCard.addEventListener('blur', function (event) {
+    event.preventDefault();
+    console.log('clicked out');
+    event.target.style.width = '80%';
+    event.style.height = '160px';
+  });
+*/
   addToStorage(name, score);
 }
 
@@ -30,7 +89,8 @@ function addToStorage (name, score) {
   // player object to hold player name and score
   const player = {
     userName: name,
-    userScore: score
+    userScore: score,
+    selected: false
   };
   if (typeof (Storage) !== 'undefined') {
     window.localStorage.setItem(name, JSON.stringify(player));
