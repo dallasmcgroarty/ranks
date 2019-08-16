@@ -55,16 +55,19 @@ function addNewPlayer (name, score) {
   target.parentNode.insertBefore(newCard, target);
 
   // adding event listener to manage which players is currently selected
+  // on click enlarge selected card and de-enlarge all others
   newCard.addEventListener('click', function (event) {
     event.preventDefault();
     var cards = document.querySelectorAll('.card');
     console.log(name + ' selected');
     newCard.style.width = '90%';
     newCard.style.height = '202px';
+    newCard.style.background = 'rgb(228, 224, 224)';
     for (var i = 0; i < cards.length; i++) {
       if (cards[i] !== newCard) {
         cards[i].style.width = '80%';
         cards[i].style.height = '160px';
+        cards[i].style.background = 'white';
       }
     }
   });
@@ -94,8 +97,8 @@ function retrieveAllPlayers () {
     for (var i = 0; i < localStorage.length; i++) {
       var player = JSON.parse(localStorage.getItem(localStorage.key(i)));
       addNewPlayer(player['userName'], player['userScore']);
-      console.log('Existing players retreived');
     }
+    console.log('Existing players retreived');
   }
 }
 
