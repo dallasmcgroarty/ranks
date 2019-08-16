@@ -13,6 +13,8 @@
     clearAllPlayers();
   });
 
+  /*
+  // manages click events outside of the cards
   document.addEventListener('click', function (event) {
     if (event && !event.target.closest('.card')) {
       console.log('clicked out');
@@ -25,6 +27,7 @@
       }
     }
   });
+  */
 /*
   let cards = document.querySelectorAll('.card');
 
@@ -54,33 +57,17 @@ function addNewPlayer (name, score) {
   // adding event listener to manage which players is currently selected
   newCard.addEventListener('click', function (event) {
     event.preventDefault();
-    var selected = true;
     var cards = document.querySelectorAll('.card');
+    console.log(name + ' selected');
+    newCard.style.width = '90%';
+    newCard.style.height = '202px';
     for (var i = 0; i < cards.length; i++) {
-      if (cards[i].style.width === '90%') {
-        console.log('deselecting player');
+      if (cards[i] !== newCard) {
         cards[i].style.width = '80%';
         cards[i].style.height = '160px';
-        selected = false;
-        break;
       }
     }
-    if (selected) {
-      console.log(name + ' selected');
-      newCard.style.width = '90%';
-      newCard.style.height = '202px';
-    } else {
-
-    }
   });
-  /*
-  newCard.addEventListener('blur', function (event) {
-    event.preventDefault();
-    console.log('clicked out');
-    event.target.style.width = '80%';
-    event.style.height = '160px';
-  });
-*/
   addToStorage(name, score);
 }
 
