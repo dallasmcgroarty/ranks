@@ -27,6 +27,12 @@
     outline: none;
 }
 
+p {
+    font-size: 10px;
+    font-family: fantasy;
+    text-align: center;
+    margin-bottom: 10px;
+}
 #new-player {
     display: flex;
     margin: 0 auto;

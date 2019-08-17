@@ -99,10 +99,13 @@ function retrieveAllPlayers () {
 function checkPlayer () {
   var name = document.getElementById('player-name').value;
   var score = document.getElementById('player-score').value;
-  if (!name || !score) {
-    console.log('no name or score entered');
+  if (!name) {
+    console.log('no name entered');
   } else {
     console.log('new player ' + name + ' added');
+    if (score === '') {
+      score = 0;
+    }
     addNewPlayer(name, score);
   }
   document.getElementById('player-name').value = '';
@@ -148,6 +151,10 @@ function subtractScore () {
   var curScore = Number(document.getElementById(target + '-score').innerText);
   // subtract from total
   var totalScore = curScore - scoreIncrement;
+  // cant go negative, issues with negative number returning null on getelementbyid
+  if (totalScore < 0) {
+    totalScore = 0;
+  }
 
   document.getElementById(target + '-score').innerText = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
