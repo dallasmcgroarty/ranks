@@ -50,6 +50,8 @@ p {
 
 #functions {
     display: flex;
+    position: sticky;
+    position:-webkit-sticky;
     flex-direction: row;
     justify-content: center;
     margin-top: 50px;
