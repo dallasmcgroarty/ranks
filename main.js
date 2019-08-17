@@ -55,12 +55,12 @@ function addNewPlayer (name, score) {
     var cards = document.querySelectorAll('.card');
     console.log(name + ' selected');
     newCard.style.width = '90%';
-    newCard.style.height = '202px';
+    newCard.style.height = '100px';
     newCard.style.background = 'rgb(228, 224, 224)';
     for (var i = 0; i < cards.length; i++) {
       if (cards[i] !== newCard) {
         cards[i].style.width = '80%';
-        cards[i].style.height = '160px';
+        cards[i].style.height = '85px';
         cards[i].style.background = 'white';
       }
     }
@@ -138,10 +138,11 @@ function subtractScore () {
       target = target.slice(0, -1);
       console.log(target);
       break;
-    } else {
-      console.log('No player seleced');
-      return;
     }
+  }
+  if (target === '') {
+    console.log('No player seleced');
+    return;
   }
   var scoreIncrement = Number(document.getElementById('score-update').value);
   var curScore = Number(document.getElementById(target + '-score').innerText);
@@ -151,7 +152,7 @@ function subtractScore () {
   document.getElementById(target + '-score').innerText = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
   player['userScore'] = totalScore;
-  localStorage.setItem(target, JSON.stringify(player));
+  window.localStorage.setItem(target, JSON.stringify(player));
   console.log(target + 's score was updated');
 }
 
@@ -169,10 +170,11 @@ function addScore () {
       target = target.slice(0, -1);
       console.log(target);
       break;
-    } else {
-      console.log('No player selected');
-      return;
     }
+  }
+  if (target === '') {
+    console.log('No player seleced');
+    return;
   }
   var scoreIncrement = Number(document.getElementById('score-update').value);
   var curScore = Number(document.getElementById(target + '-score').innerText);
@@ -182,6 +184,6 @@ function addScore () {
   document.getElementById(target + '-score').innerText = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
   player['userScore'] = totalScore;
-  localStorage.setItem(target, JSON.stringify(player));
+  window.localStorage.setItem(target, JSON.stringify(player));
   console.log(target + 's score was updated to');
 }
