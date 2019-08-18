@@ -1,3 +1,6 @@
+.body {
+    position: absolute;
+}
 #title {
     font-size: 80px;
     margin-bottom: 0px;
@@ -52,6 +55,7 @@ p {
     display: flex;
     position: sticky;
     position:-webkit-sticky;
+    position: relative;
     flex-direction: row;
     justify-content: center;
     margin-top: 50px;
@@ -93,6 +97,9 @@ p {
 
 #clear-all{
     display: flex;
+    position: sticky;
+    position:-webkit-sticky;
+    position: relative;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 50px;

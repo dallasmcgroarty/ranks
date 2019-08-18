@@ -41,7 +41,7 @@
 
 // Add new player function. Checks if user entered info and creates a new card
 function addNewPlayer (name, score) {
-  var target = document.querySelector('.sticky-bottom');
+  var target = document.getElementById('functions');
   var newCard = document.createElement('div');
   newCard.setAttribute('class', 'card');
   // create new card with player name as id and score as id, ex: id='Tom', id='Tom-score'
