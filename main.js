@@ -10,12 +10,12 @@
 
   document.getElementById('clear-all-btn').addEventListener('click', function (event) {
     event.preventDefault();
-    alert('Clearing players');
     clearAllPlayers();
   });
 
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
+    checkPlayer();
     addScore();
   });
  
