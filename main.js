@@ -10,6 +10,7 @@
 
   document.getElementById('clear-all-btn').addEventListener('click', function (event) {
     event.preventDefault();
+    alert('Clearing players');
     clearAllPlayers();
   });
 
