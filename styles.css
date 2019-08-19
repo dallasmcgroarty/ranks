@@ -49,6 +49,7 @@ p {
     width:20%;
     margin-right: 30px;
     height: 100%;
+    cursor: pointer;
 }
 
 #functions {
@@ -86,6 +87,7 @@ p {
     height: auto;
     text-align: center;
     color: transparent;
+    cursor: pointer;
     text-shadow: 0 0 0 rgb(0, 0, 0);
 }:focus {
     outline: none;
@@ -95,6 +97,7 @@ p {
     width:20%;
     margin-left: 30px;
     height: 100%;
+    cursor: pointer;
 }
 
 #clear-all{
