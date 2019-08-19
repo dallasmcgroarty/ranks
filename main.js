@@ -15,7 +15,6 @@
 
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
-    checkPlayer();
     addScore();
   });
  
