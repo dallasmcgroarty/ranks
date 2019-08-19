@@ -16,10 +16,18 @@
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
-    alert('Plus works');
   });
-
+  // for mobile
+  document.getElementById('plus').addEventListener('touchstart', function (event) {
+    event.preventDefault();
+    addScore();
+  });
   document.getElementById('minus').addEventListener('click', function (event) {
+    event.preventDefault();
+    subtractScore();
+  });
+  // for mobile
+  document.getElementById('minus').addEventListener('touchstart', function (event) {
     event.preventDefault();
     subtractScore();
   });
