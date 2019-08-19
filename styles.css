@@ -1,5 +1,6 @@
 .body {
     position: absolute;
+    cursor: pointer;
 }
 #title {
     font-size: 80px;
