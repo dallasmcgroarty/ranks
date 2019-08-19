@@ -16,6 +16,7 @@
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
+    alert('Plus works');
   });
 
   document.getElementById('minus').addEventListener('click', function (event) {
