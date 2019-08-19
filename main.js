@@ -17,11 +17,10 @@
     event.preventDefault();
     addScore();
   });
- 
+
   document.getElementById('minus').addEventListener('click', function (event) {
     event.preventDefault();
     subtractScore();
-    alert('score subtracted');
   });
   /*
   // manages click events outside of the cards
