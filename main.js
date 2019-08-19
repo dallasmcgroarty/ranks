@@ -12,7 +12,7 @@
     event.preventDefault();
     clearAllPlayers();
   });
-
+  /*
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
@@ -22,6 +22,7 @@
     event.preventDefault();
     subtractScore();
   });
+  */
   /*
   // manages click events outside of the cards
   document.addEventListener('click', function (event) {

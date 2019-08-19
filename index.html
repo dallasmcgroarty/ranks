@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Carter+One|Bangers&display=swap" rel="stylesheet">
 </head>
 <body class="container-fluid" style="background-color: rgb(233, 250, 236)">
-    <div onclick="void(0);">
     <div class="header">
         <h1 class="text-center" id="title">Ranks</h1>
         <h2 class="text-center" id="sub-title">Keep Score And Have Fun</h3>
@@ -27,32 +26,14 @@
         <p>Default Score is 0</p>
         <button type="submit" class="btn btn-dark" id="new-player">Add New Player</button>
     </form>
-    <!--
-    <div class="clear-all-popup">
-        <button type="button" class="btn btn-danger" id="clear-all-popup-btn">Are You Sure?</button>
-    </div>
-    -->
-    <!--
-    <div class="card">
-        <div class="card-body">
-            <div class="name-show">
-                Tom
-            </div>
-            <div class="player-score-show">
-                0
-            </div>
-        </div>
-    </div>
--->
     <div id="functions">
-        <img src="img/minus.png" id="minus">
+        <img src="img/minus.png" onclick="subtractScore()" id="minus">
         <input type="number" id="score-update" placeholder=0>
-        <img src="img/plus.png" id="plus">   
+        <img src="img/plus.png" onclick="addScore()"id="plus">   
     </div>
     <div id="clear-all">
         <button type="button" class="btn btn-danger" id="clear-all-btn">Delete All Players</button>
     </div>
     <script src="main.js" charset="utf-8"></script>
-</div>
 </body>
 </html>
