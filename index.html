@@ -27,9 +27,13 @@
         <button type="submit" class="btn btn-dark" id="new-player">Add New Player</button>
     </form>
     <div id="functions">
-        <img src="img/minus.png" onclick="subtractScore()" id="minus">
+        <a id="minus-link" onclick="subtractScore()">
+        <img src="img/minus.png" id="minus">
+    </a>
         <input type="number" id="score-update" placeholder=0>
-        <img src="img/plus.png" onclick="addScore()"id="plus">   
+        <a id="plus-link" onclick="addScore()">
+        <img src="img/plus.png" id="plus">  
+    </a> 
     </div>
     <div id="clear-all">
         <button type="button" class="btn btn-danger" id="clear-all-btn">Delete All Players</button>
