@@ -13,12 +13,12 @@
     clearAllPlayers();
   });
   
-  document.getElementById('plus-link').addEventListener('click', function (event) {
+  document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
   });
 
-  document.getElementById('minus-link').addEventListener('click', function (event) {
+  document.getElementById('minus').addEventListener('click', function (event) {
     event.preventDefault();
     subtractScore();
   });
