@@ -165,7 +165,6 @@ function subtractScore () {
 
 // add score increment to user score
 function addScore () {
-  alert('plus has been clicked');
   if (!document.querySelector('.card')) {
     console.log('No players added');
     return;
