@@ -12,17 +12,17 @@
     event.preventDefault();
     clearAllPlayers();
   });
-  /*
-  document.getElementById('plus').addEventListener('click', function (event) {
+  
+  document.getElementById('plus-link').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
   });
 
-  document.getElementById('minus').addEventListener('click', function (event) {
+  document.getElementById('minus-link').addEventListener('click', function (event) {
     event.preventDefault();
     subtractScore();
   });
-  */
+  
   /*
   // manages click events outside of the cards
   document.addEventListener('click', function (event) {
@@ -166,7 +166,7 @@ function subtractScore () {
 
 // add score increment to user score
 function addScore () {
-  alert('add button');
+  alert('plus clicked');
   if (!document.querySelector('.card')) {
     console.log('No players added');
     return;
