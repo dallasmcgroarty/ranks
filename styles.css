@@ -46,8 +46,7 @@ p {
     font-size: 20px;
 }
 #minus {
-    width:60%;
-    margin-right: 30px;
+    width: 70%;
     height: 100%;
     cursor: pointer;
 }
@@ -55,6 +54,7 @@ p {
     display: flex;
     justify-content: center;
     width: 30%;
+    margin-right: 20px;
 }
 
 #functions {
@@ -99,15 +99,16 @@ p {
 }
 
 #plus {
-    width:60%;
-    margin-left: 30px;
+    width: 70%;
     height: 100%;
     cursor: pointer;
 }
 #plus-link {
+    display: inline-block;
     display: flex;
     justify-content: center;
     width: 30%;
+    margin-left: 20px;
 }
 #clear-all{
     display: flex;
