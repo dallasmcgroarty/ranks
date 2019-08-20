@@ -12,7 +12,7 @@
     event.preventDefault();
     clearAllPlayers();
   });
-  
+
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
@@ -22,7 +22,6 @@
     event.preventDefault();
     subtractScore();
   });
-  
   /*
   // manages click events outside of the cards
   document.addEventListener('click', function (event) {
@@ -175,8 +174,10 @@ function addScore () {
   var cards = document.querySelectorAll('.card');
   for (var i = 0; i < cards.length; i++) {
     if (cards[i].style.width === '90%') {
-      target = cards[i].innerText.replace(/[0-9]/g, '');
-      target = target.slice(0, -1);
+      // testing textConent over innerText for iOS
+      target = cards[i].textContent.replace(/[0-9]/g, '');
+      // slice(0,-1) for innerText, for textContent use slice(1,-1)
+      target = target.slice(1, -1);
       console.log(target);
       break;
     }
@@ -186,11 +187,12 @@ function addScore () {
     return;
   }
   var scoreIncrement = Number(document.getElementById('score-update').value);
-  var curScore = Number(document.getElementById(target + '-score').innerText);
+  // testing textConent over innerText for iOS
+  var curScore = Number(document.getElementById(target + '-score').textContent);
   // add to total
   var totalScore = curScore + scoreIncrement;
-
-  document.getElementById(target + '-score').innerText = totalScore;
+  // testing textConent over innerText for iOS
+  document.getElementById(target + '-score').textContent = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
   player['userScore'] = totalScore;
   window.localStorage.setItem(target, JSON.stringify(player));
