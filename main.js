@@ -1,5 +1,6 @@
 // Set up event listeners and functions needed to run when the window is shown
 
+// use if (ga) to check if google analytics is loaded
 (function (window) {
   retrieveAllPlayers();
 

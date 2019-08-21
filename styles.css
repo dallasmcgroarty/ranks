@@ -1,6 +1,7 @@
 .body {
     position: absolute;
 }
+
 #title {
     font-size: 80px;
     margin-bottom: 0px;
@@ -9,7 +10,7 @@
 
 #sub-title {
     margin-bottom: 30px;
-    font-family: 'Bangers', cursive;
+    font-family: 'Bangers';
     font-size: 23px;
 }
 
