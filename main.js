@@ -42,12 +42,12 @@
 
 // Add new player function. Checks if user entered info and creates a new card
 function addNewPlayer (name, score) {
-  var target = document.getElementById('functions');
+  var target = document.getElementById('card-set');
   var newCard = document.createElement('div');
   newCard.setAttribute('class', 'card');
   // create new card with player name as id and score as id, ex: id='Tom', id='Tom-score'
   newCard.innerHTML = "<div class='card-body'> <div id=" + name + '>' + name + '</div> <div id=' + name + '-score>' + score + '</div></div>';
-  target.parentNode.insertBefore(newCard, target);
+  target.appendChild(newCard);
 
   // adding event listener to manage which players is currently selected
   // on click enlarge selected card and de-enlarge all others
@@ -93,6 +93,8 @@ function retrieveAllPlayers () {
       addNewPlayer(player['userName'], player['userScore']);
     }
     console.log('Existing players retreived');
+    // order players when window loads
+    orderPlayers(1);
   }
 }
 
@@ -164,6 +166,8 @@ function subtractScore () {
   player['userScore'] = totalScore;
   window.localStorage.setItem(target, JSON.stringify(player));
   console.log(target + 's score was updated');
+  // order players dynamically while updating scores
+  orderPlayers(0);
 }
 
 // add score increment to user score
@@ -199,4 +203,42 @@ function addScore () {
   player['userScore'] = totalScore;
   window.localStorage.setItem(target, JSON.stringify(player));
   console.log(target + 's score was updated to');
+  // order players dynamically while updating scores
+  orderPlayers(0);
+}
+
+// order players function orders players from highest score to lowest
+// then appends them back to the DOM under the parent class 'card-set'
+// removes animation after initial load as well
+function orderPlayers (animate) {
+  var playerArr = [];
+  var target = document.getElementById('card-set');
+  var cards = document.querySelectorAll('.card');
+
+  for (var p in cards) {
+    if (cards[p].nodeType === 1) {
+      if (animate === 1) {
+        cards[p].classList.remove('no-animate');
+      } else {
+        cards[p].classList.add('no-animate');
+      }
+      playerArr.push(cards[p]);
+    }
+  }
+
+  playerArr.sort(function (a, b) {
+    var x = Number(a.textContent.replace(/[^\d.-]/g, ''));
+    var y = Number(b.textContent.replace(/[^\d.-]/g, ''));
+    if (x > y) {
+      return -1;
+    }
+    if (x < y) {
+      return 1;
+    }
+    return 0;
+  });
+
+  for (var x = 0; x < playerArr.length; ++x) {
+    target.appendChild(playerArr[x]);
+  }
 }
