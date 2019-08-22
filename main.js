@@ -226,6 +226,7 @@ function orderPlayers (animate) {
     }
   }
 
+  // sort greatest to least
   playerArr.sort(function (a, b) {
     var x = Number(a.textContent.replace(/[^\d.-]/g, ''));
     var y = Number(b.textContent.replace(/[^\d.-]/g, ''));
@@ -238,6 +239,7 @@ function orderPlayers (animate) {
     return 0;
   });
 
+  // re-append nodes
   for (var x = 0; x < playerArr.length; ++x) {
     target.appendChild(playerArr[x]);
   }
