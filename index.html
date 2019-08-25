@@ -16,6 +16,7 @@
   <meta name="description" content="Ranks is a free online scorecard geared toward mobile users. It's intuitive and easy to use. Add players, keep score and have fun!"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" type="image/png" href="img/ranks_favicon.png">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -50,6 +51,21 @@
     </div>
     <div id="clear-all">
         <button type="button" class="btn btn-danger" id="clear-all-btn">Delete All Players</button>
+    </div>
+    <h4 class="text-center" id="share-text">Share With Your Friends!</h4>
+    <div id="share-btn-group" class="d-flex justify-content-center" style="margin-bottom: 50px;">
+        <a href="https://twitter.com/share?url=https://ranks.pw&text=Ranks - The Free Online Score Card" target="_blank" class="share-btn twitter">
+            <i class="fa fa-twitter"></i>
+            </a>
+        <a href="https://www.linkedin.com/shareArticle?url=https://ranks.pw&title=Ranks - The Free Online Score Card&summary=Ranks is a free online scorecard geared toward mobile users. It's intuitive and easy to use. Add players, keep score and have fun!" target="_blank" class="share-btn linkedin">
+            <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="mailto:?subject=Check Out This Cool Site I Found &body=Ranks - The Free Online Score Card. Ranks is a free online scorecard geared toward mobile users. It's intuitive and easy to use. Add players, keep score and have fun!%0D%0Ahttps://ranks.pw" target="" class="share-btn email">
+            <i class="fa fa-envelope"></i>
+        </a>
+        <a href="sms:;?&body=Ranks - The Free Online Score Card - https://ranks.pw" class="share-btn sms">
+            <i class="fa fa-comment"></i>
+        </a>
     </div>
     <script src="main.js" charset="utf-8"></script>
 </body>

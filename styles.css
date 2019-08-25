@@ -122,7 +122,7 @@ p {
     position: relative;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     margin-top: 50px;
 }
 
@@ -133,6 +133,23 @@ p {
 
 .no-animate {
     animation: none !important;
+}
+
+#share-text {
+    font-family: 'Bangers';
+    margin-bottom: 25px;
+}
+
+.share-btn {
+    color: #2f8bf5;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: none;
+    padding: 0.5em;
+    width: 4em;
+    margin: 5px;
+    outline: none;
+    text-align: center;
 }
 
 @keyframes slide-down {
