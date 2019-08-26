@@ -141,16 +141,20 @@ p {
 }
 
 .share-btn {
-    color: #2f8bf5;
-    background-color: rgb(255, 255, 255);
+    color: #ffffff;
+    /*background-color: rgb(255, 255, 255);*/
     border-radius: 5px;
     border: none;
     padding: 0.5em;
     width: 4em;
-    margin: 5px;
+    margin: 3px;
     outline: none;
     text-align: center;
 }
+.share-btn.twitter     { background: #55acee; }
+.share-btn.linkedin    { background: #4875B4; }
+.share-btn.email       { background: #444444; }
+.share-btn.sms         { background: rgb(50, 190, 50)}
 
 @keyframes slide-down {
     0% {
