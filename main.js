@@ -14,6 +14,11 @@
     clearAllPlayers();
   });
 
+  document.getElementById('reset-all-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+    resetAllScores();
+  });
+
   document.getElementById('plus').addEventListener('click', function (event) {
     event.preventDefault();
     addScore();
@@ -130,6 +135,27 @@ function clearAllPlayers () {
   }
 }
 
+// reset all player scores back to 0
+function resetAllScores () {
+  if (!document.querySelector('.card')) {
+    console.log('No players added');
+    return;
+  }
+  var target = '';
+  var player = {};
+  var cards = document.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++) {
+    target = cards[i].textContent.replace(/[0-9]/g, '');
+    target = target.slice(1, -1);
+    // use player name to get the player score and set textContent to 0
+    document.getElementById(target + '-score').textContent = '0';
+    // then set the players score to 0 in localstorage
+    player = JSON.parse(localStorage.getItem(target));
+    player['userScore'] = 0;
+    window.localStorage.setItem(target, JSON.stringify(player));
+  }
+  console.log('All player scores reset to 0');
+}
 // subtract user score with score increment
 function subtractScore () {
   if (!document.querySelector('.card')) {
