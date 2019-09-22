@@ -176,3 +176,273 @@ p {
         transform: translateY(0);
     }
 }
+
+@media screen and (min-width: 1000px) {
+    #title {
+        font-size: 200px;
+        margin-bottom: 0px;
+        font-family: 'Carter One', cursive;
+    }
+    
+    #sub-title {
+        margin-bottom: 30px;
+        font-family: 'Bangers';
+        font-size: 45px;
+    }
+    
+    .player-name-input, .player-score-input{
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+        width: 70%;
+    }
+
+    #player-name, #player-score {
+        height: 90px;
+        font-size: 40px;
+        text-align: center;
+        color: transparent;
+        text-shadow: 0 0 0 rgb(0, 0, 0);
+    }:focus {
+        outline: none;
+    }
+    
+    p {
+        font-size: 30px;
+        font-family: fantasy;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #new-player {
+        display: flex;
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 50px;
+        width: 70%;
+        justify-content: center;
+        font-size: 40px;
+    }
+    #minus {
+        width: 60%;
+        height: 100%;
+        cursor: pointer;
+    }
+    #minus-link {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        margin-right: 20px;
+    }
+    
+    .card-set {
+        display: flex;
+    }
+    .card {
+        display: flex;
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+        width: 70%;
+        height: 200px;
+        animation: slide-down 1.0s ease;
+    }
+    .card-body {
+        font-size: 50px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .player-name {
+        width: 20%;
+    }
+    #score-update{
+        border-radius: 20px;
+        border-style: none;
+        font-size: 40px;
+        width: 20%;
+        height: auto;
+        text-align: center;
+        color: transparent;
+        cursor: pointer;
+        text-shadow: 0 0 0 rgb(0, 0, 0);
+    }:focus {
+        outline: none;
+    }
+    
+    #plus {
+        width: 60%;
+        height: 100%;
+        cursor: pointer;
+    }
+    #plus-link {
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        margin-left: 20px;
+    }
+
+    #clear-all-btn, #reset-all-btn {
+        width: 70%;
+        font-size: 40px;
+    }
+
+    #share-text {
+        font-family: 'Bangers';
+        margin-bottom: 25px;
+        font-size: 40px;
+    }
+    
+    .share-btn {
+        color: #ffffff;
+        /*background-color: rgb(255, 255, 255);*/
+        border-radius: 5px;
+        border: none;
+        padding: 0.5em;
+        width: 10em;
+        height: 2.5em;
+        margin: 3px;
+        outline: none;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    html {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    #title {
+        font-size: 100px;
+        margin-bottom: 0px;
+        font-family: 'Carter One', cursive;
+    }
+
+    #sub-title {
+        margin-bottom: 30px;
+        font-family: 'Bangers';
+        font-size: 23px;
+    }
+
+    .player-name-input, .player-score-input{
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+        width: 40%;
+    }
+
+    #player-name, #player-score {
+        height: 50px;
+        font-size: 20px;
+        text-align: center;
+        color: transparent;
+        text-shadow: 0 0 0 rgb(0, 0, 0);
+    }:focus {
+        outline: none;
+    }
+    
+    p {
+        font-size: 15px;
+        font-family: fantasy;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #new-player {
+        display: flex;
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 50px;
+        width: 40%;
+        justify-content: center;
+        font-size: 20px;
+    }
+
+    #minus {
+        width: 40%;
+        height: 100%;
+        margin-left: 150px;
+        cursor: pointer;
+    }
+    #minus-link {
+        display: flex;
+        justify-content: center;
+        width: 30%;
+        margin-right: 20px;
+    }
+    
+    .card-set {
+        display: flex;
+    }
+    .card {
+        display: flex;
+        margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+        width: 40%;
+        height: 100px;
+        animation: slide-down 1.0s ease;
+    }
+    .card-body {
+        font-size: 30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .player-name {
+        width: 20%;
+    }
+    #score-update{
+        border-radius: 20px;
+        border-style: none;
+        font-size: 30px;
+        width: 10%;
+        height: auto;
+        text-align: center;
+        color: transparent;
+        cursor: pointer;
+        text-shadow: 0 0 0 rgb(0, 0, 0);
+    }:focus {
+        outline: none;
+    }
+    
+    #plus {
+        width: 40%;
+        height: 100%;
+        margin-right: 150px;
+        cursor: pointer;
+    }
+    #plus-link {
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+        width: 30%;
+    }
+
+    #clear-all-btn, #reset-all-btn {
+        width: 40%;
+        font-size: 20px;
+    }
+
+    #share-text {
+        font-family: 'Bangers';
+        margin-bottom: 25px;
+        font-size: 30px;
+    }
+
+    .share-btn {
+        color: #ffffff;
+        /*background-color: rgb(255, 255, 255);*/
+        border-radius: 5px;
+        border: none;
+        padding: 0.5em;
+        width: 6em;
+        height: 2.5em;
+        margin: 3px;
+        outline: none;
+        text-align: center;
+    }
+}

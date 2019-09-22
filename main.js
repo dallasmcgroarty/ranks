@@ -60,14 +60,39 @@ function addNewPlayer (name, score) {
     event.preventDefault();
     var cards = document.querySelectorAll('.card');
     console.log(name + ' selected');
-    newCard.style.width = '90%';
-    newCard.style.height = '100px';
-    newCard.style.background = 'rgb(228, 224, 224)';
-    for (var i = 0; i < cards.length; i++) {
-      if (cards[i] !== newCard) {
-        cards[i].style.width = '80%';
-        cards[i].style.height = '85px';
-        cards[i].style.background = 'white';
+    // check for tablet
+    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      newCard.style.width = '80%';
+      newCard.style.height = '210px';
+      newCard.style.background = 'rgb(228, 224, 224)';
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i] !== newCard) {
+          cards[i].style.width = '70%';
+          cards[i].style.height = '200px';
+          cards[i].style.background = 'white';
+        }
+      } // check for desktop/laptop
+    } else if (window.innerWidth >= 1400) {
+      newCard.style.width = '50%';
+      newCard.style.height = '110px';
+      newCard.style.background = 'rgb(228, 224, 224)';
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i] !== newCard) {
+          cards[i].style.width = '40%';
+          cards[i].style.height = '100px';
+          cards[i].style.background = 'white';
+        }
+      } // else were on mobile
+    } else {
+      newCard.style.width = '90%';
+      newCard.style.height = '100px';
+      newCard.style.background = 'rgb(228, 224, 224)';
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i] !== newCard) {
+          cards[i].style.width = '80%';
+          cards[i].style.height = '85px';
+          cards[i].style.background = 'white';
+        }
       }
     }
   });
@@ -165,12 +190,29 @@ function subtractScore () {
   var target = '';
   var cards = document.querySelectorAll('.card');
   for (var i = 0; i < cards.length; i++) {
-    if (cards[i].style.width === '90%') {
-      // textConent over innerText for iOS
-      target = cards[i].textContent.replace(/[0-9]/g, '');
-      target = target.slice(1, -1);
-      console.log(target);
-      break;
+    // check if on tablet or desktop
+    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      if (cards[i].style.width === '80%') {
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      } // check if on desktop/laptop
+    } else if (window.innerWidth >= 1400) {
+      if (cards[i].style.width === '50%') {
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      } // else mobile
+    } else {
+      if (cards[i].style.width === '90%') {
+        // textConent over innerText for iOS
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      }
     }
   }
   if (target === '') {
@@ -205,13 +247,31 @@ function addScore () {
   var target = '';
   var cards = document.querySelectorAll('.card');
   for (var i = 0; i < cards.length; i++) {
-    if (cards[i].style.width === '90%') {
-      // textConent over innerText for iOS
-      target = cards[i].textContent.replace(/[0-9]/g, '');
-      // slice(0,-1) for innerText, for textContent use slice(1,-1)
-      target = target.slice(1, -1);
-      console.log(target);
-      break;
+    // check if on tablet or desktop
+    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      if (cards[i].style.width === '80%') {
+        // textConent over innerText for iOS
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      } // check if on desktop/laptop
+    } else if (window.innerWidth >= 1400) {
+      if (cards[i].style.width === '50%') {
+        // textConent over innerText for iOS
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      } // else mobile
+    } else {
+      if (cards[i].style.width === '90%') {
+        // textConent over innerText for iOS
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      }
     }
   }
   if (target === '') {
