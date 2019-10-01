@@ -176,45 +176,14 @@ function resetAllScores () {
     document.getElementById(target + '-score').textContent = '0';
     // then set the players score to 0 in localstorage
     player = JSON.parse(localStorage.getItem(target));
-    player['userScore'] = 0;
+    player['userScore'] = '0';
     window.localStorage.setItem(target, JSON.stringify(player));
   }
   console.log('All player scores reset to 0');
 }
 // subtract user score with score increment
 function subtractScore () {
-  if (!document.querySelector('.card')) {
-    console.log('No players added');
-    return;
-  }
-  var target = '';
-  var cards = document.querySelectorAll('.card');
-  for (var i = 0; i < cards.length; i++) {
-    // check if on tablet or desktop
-    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
-      if (cards[i].style.width === '80%') {
-        target = cards[i].textContent.replace(/[0-9]/g, '');
-        target = target.slice(1, -1);
-        console.log(target);
-        break;
-      } // check if on desktop/laptop
-    } else if (window.innerWidth >= 1400) {
-      if (cards[i].style.width === '50%') {
-        target = cards[i].textContent.replace(/[0-9]/g, '');
-        target = target.slice(1, -1);
-        console.log(target);
-        break;
-      } // else mobile
-    } else {
-      if (cards[i].style.width === '90%') {
-        // textConent over innerText for iOS
-        target = cards[i].textContent.replace(/[0-9]/g, '');
-        target = target.slice(1, -1);
-        console.log(target);
-        break;
-      }
-    }
-  }
+  let target = getTarget();
   if (target === '') {
     console.log('No player seleced');
     return;
@@ -240,40 +209,7 @@ function subtractScore () {
 
 // add score increment to user score
 function addScore () {
-  if (!document.querySelector('.card')) {
-    console.log('No players added');
-    return;
-  }
-  var target = '';
-  var cards = document.querySelectorAll('.card');
-  for (var i = 0; i < cards.length; i++) {
-    // check if on tablet or desktop
-    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
-      if (cards[i].style.width === '80%') {
-        // textConent over innerText for iOS
-        target = cards[i].textContent.replace(/[0-9]/g, '');
-        target = target.slice(1, -1);
-        console.log(target);
-        break;
-      } // check if on desktop/laptop
-    } else if (window.innerWidth >= 1400) {
-      if (cards[i].style.width === '50%') {
-        // textConent over innerText for iOS
-        target = cards[i].textContent.replace(/[0-9]/g, '');
-        target = target.slice(1, -1);
-        console.log(target);
-        break;
-      } // else mobile
-    } else {
-      if (cards[i].style.width === '90%') {
-        // textConent over innerText for iOS
-        target = cards[i].textContent.replace(/[0-9]/g, '');
-        target = target.slice(1, -1);
-        console.log(target);
-        break;
-      }
-    }
-  }
+  let target = getTarget();
   if (target === '') {
     console.log('No player seleced');
     return;
@@ -286,9 +222,10 @@ function addScore () {
   // textConent over innerText for iOS
   document.getElementById(target + '-score').textContent = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
-  player['userScore'] = totalScore;
+  player['userScore'] = totalScore.toString();
+
   window.localStorage.setItem(target, JSON.stringify(player));
-  console.log(target + 's score was updated to');
+  console.log(target + 's score was updated');
   // order players dynamically while updating scores
   orderPlayers(0);
 }
@@ -329,4 +266,41 @@ function orderPlayers (animate) {
   for (var x = 0; x < playerArr.length; ++x) {
     target.appendChild(playerArr[x]);
   }
+}
+
+// function to get the current target selected
+function getTarget () {
+  if (!document.querySelector('.card')) {
+    console.log('No players added');
+    return;
+  }
+  var target = '';
+  var cards = document.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++) {
+    // check if on tablet or desktop
+    if (window.innerWidth > 1000 && window.innerWidth < 1400) {
+      if (cards[i].style.width === '80%') {
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      } // check if on desktop/laptop
+    } else if (window.innerWidth >= 1400) {
+      if (cards[i].style.width === '50%') {
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      } // else mobile
+    } else {
+      if (cards[i].style.width === '90%') {
+        // textConent over innerText for iOS
+        target = cards[i].textContent.replace(/[0-9]/g, '');
+        target = target.slice(1, -1);
+        console.log(target);
+        break;
+      }
+    }
+  }
+  return target;
 }
