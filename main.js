@@ -106,7 +106,7 @@ function addToStorage (name, score) {
     userName: name,
     userScore: score
   };
-  if (typeof (Storage) !== 'undefined') {
+  if (typeof (Storage) !== 'undefined' && !(name in localStorage)) {
     window.localStorage.setItem(name, JSON.stringify(player));
     console.log('player added to localStorage');
   } else {
@@ -121,11 +121,13 @@ function retrieveAllPlayers () {
     for (var i = 0; i < localStorage.length; i++) {
       // wierd error with localstorage not sure what this string below is
       if (localStorage.getItem(localStorage.key(i)) === '483d05ce-41b1-4855-82ea-4617a7890a0e') {
-        localStorage.removeItem(localStorage.key(i));
+        localStorage.removeItem('483d05ce-41b1-4855-82ea-4617a7890a0e');
       } else {
         var player = JSON.parse(localStorage.getItem(localStorage.key(i)));
       }
-      addNewPlayer(player['userName'], player['userScore']);
+      if (player) {
+        addNewPlayer(player['userName'], player['userScore']);
+      }
     }
     console.log('Existing players retreived');
     // order players when window loads
