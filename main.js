@@ -122,9 +122,9 @@ function retrieveAllPlayers () {
       // wierd error with localstorage not sure what this string below is
       if (localStorage.getItem(localStorage.key(i)) === '483d05ce-41b1-4855-82ea-4617a7890a0e') {
         localStorage.removeItem(localStorage.key(i));
+      } else {
+        var player = JSON.parse(localStorage.getItem(localStorage.key(i)));
       }
-      var player = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
       addNewPlayer(player['userName'], player['userScore']);
     }
     console.log('Existing players retreived');
