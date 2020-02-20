@@ -106,7 +106,7 @@ function addToStorage (name, score) {
     userName: name,
     userScore: score
   };
-  if (typeof (Storage) !== 'undefined' && !(name in localStorage)) {
+  if (typeof (Storage) !== 'undefined') {
     window.localStorage.setItem(name, JSON.stringify(player));
     console.log('player added to localStorage');
   } else {
@@ -120,8 +120,8 @@ function retrieveAllPlayers () {
   if (localStorage) {
     for (var i = 0; i < localStorage.length; i++) {
       // wierd error with localstorage not sure what this string below is
-      if (localStorage.getItem(localStorage.key(i)) === '483d05ce-41b1-4855-82ea-4617a7890a0e') {
-        localStorage.removeItem('483d05ce-41b1-4855-82ea-4617a7890a0e');
+      if (localStorage.getItem(localStorage.key(i)) === '483d05ce-41b1-4855-82ea-4617a7890a0e' || localStorage.getItem(localStorage.key(i)) === null) {
+        continue;
       } else {
         var player = JSON.parse(localStorage.getItem(localStorage.key(i)));
       }
