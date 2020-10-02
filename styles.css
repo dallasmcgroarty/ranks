@@ -108,6 +108,7 @@ p {
     height: 100%;
     cursor: pointer;
 }
+
 #plus-link {
     display: inline-block;
     display: flex;
@@ -115,6 +116,7 @@ p {
     width: 30%;
     margin-left: 20px;
 }
+
 #clear-all{
     display: flex;
     position: sticky;

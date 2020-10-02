@@ -181,6 +181,7 @@ function resetAllScores () {
   for (var i = 0; i < cards.length; i++) {
     target = cards[i].textContent.replace(/[0-9]/g, '');
     target = target.slice(1, -1);
+    target = target.trim();
     // use player name to get the player score and set textContent to 0
     document.getElementById(target + '-score').textContent = '0';
     // then set the players score to 0 in localstorage
