@@ -141,6 +141,8 @@ function checkPlayer () {
   var score = document.getElementById('player-score').value;
   if (!name) {
     console.log('no name entered');
+  } else if (JSON.parse(localStorage.getItem(name))) {
+    console.log('Player already exists');
   } else {
     console.log('new player ' + name + ' added');
     if (score === '') {
@@ -188,26 +190,32 @@ function resetAllScores () {
   }
   console.log('All player scores reset to 0');
 }
+
 // subtract user score with score increment
 function subtractScore () {
   let target = getTarget();
+
   if (target === '') {
     console.log('No player seleced');
     return;
   }
+
+  if (document.getElementById('score-update').value === 0 || document.getElementById('score-update').value === '0' || 
+      document.getElementById('score-update').value === '') {
+    return;
+  }
+  
   var scoreIncrement = Number(document.getElementById('score-update').value);
   // textConent over innerText for iOS
   var curScore = Number(document.getElementById(target + '-score').textContent);
   // subtract from total
   var totalScore = curScore - scoreIncrement;
-  // cant go negative, issues with negative number returning null on getelementbyid
-  if (totalScore < 0) {
-    totalScore = 0;
-  }
-  // textConent over innerText for iOS
+
+  // textContent over innerText for iOS
   document.getElementById(target + '-score').textContent = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
-  player['userScore'] = totalScore;
+  player['userScore'] = totalScore.toString();
+
   window.localStorage.setItem(target, JSON.stringify(player));
   console.log(target + 's score was updated');
   // order players dynamically while updating scores
@@ -221,6 +229,12 @@ function addScore () {
     console.log('No player seleced');
     return;
   }
+
+  if (document.getElementById('score-update').value === 0 || document.getElementById('score-update').value === '0' || 
+      document.getElementById('score-update').value === '') {
+    return;
+  }
+
   var scoreIncrement = Number(document.getElementById('score-update').value);
   // textConent over innerText for iOS
   var curScore = Number(document.getElementById(target + '-score').textContent);
@@ -289,14 +303,14 @@ function getTarget () {
       if (cards[i].style.width === '80%') {
         target = cards[i].textContent.replace(/[0-9]/g, '');
         target = target.slice(1, -1);
-        console.log(target);
+        target = target.trim();
         break;
       } // check if on desktop/laptop
     } else if (window.innerWidth >= 1400) {
       if (cards[i].style.width === '50%') {
         target = cards[i].textContent.replace(/[0-9]/g, '');
         target = target.slice(1, -1);
-        console.log(target);
+        target = target.trim();
         break;
       } // else mobile
     } else {
@@ -304,7 +318,7 @@ function getTarget () {
         // textConent over innerText for iOS
         target = cards[i].textContent.replace(/[0-9]/g, '');
         target = target.slice(1, -1);
-        console.log(target);
+        target = target.trim();
         break;
       }
     }
