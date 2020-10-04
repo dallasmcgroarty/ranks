@@ -144,6 +144,7 @@ function checkPlayer () {
   } else if (JSON.parse(localStorage.getItem(name))) {
     console.log('Player already exists');
   } else {
+    name = name.trim();
     console.log('new player ' + name + ' added');
     if (score === '') {
       score = 0;
@@ -151,6 +152,7 @@ function checkPlayer () {
     addNewPlayer(name, score);
   }
   document.getElementById('player-name').value = '';
+  document.getElementById('player-score').value = '';
 }
 
 // Clear all players from the DOM tree and from local storage
@@ -241,6 +243,7 @@ function addScore () {
   var curScore = Number(document.getElementById(target + '-score').textContent);
   // add to total
   var totalScore = curScore + scoreIncrement;
+
   // textConent over innerText for iOS
   document.getElementById(target + '-score').textContent = totalScore;
   var player = JSON.parse(localStorage.getItem(target));
@@ -304,14 +307,12 @@ function getTarget () {
       if (cards[i].style.width === '80%') {
         target = cards[i].textContent.replace(/[0-9]/g, '');
         target = target.slice(1, -1);
-        target = target.trim();
         break;
       } // check if on desktop/laptop
     } else if (window.innerWidth >= 1400) {
       if (cards[i].style.width === '50%') {
         target = cards[i].textContent.replace(/[0-9]/g, '');
         target = target.slice(1, -1);
-        target = target.trim();
         break;
       } // else mobile
     } else {
@@ -319,10 +320,10 @@ function getTarget () {
         // textConent over innerText for iOS
         target = cards[i].textContent.replace(/[0-9]/g, '');
         target = target.slice(1, -1);
-        target = target.trim();
         break;
       }
     }
   }
+  target = target.trim();
   return target;
 }
