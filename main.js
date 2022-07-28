@@ -28,6 +28,12 @@
     event.preventDefault();
     subtractScore();
   });
+  
+  document.getElementById('day-night-mode').addEventListener('click', function (event) {
+    event.preventDefault();
+    toggleDarkMode();
+  });
+  
   /*
   // manages click events outside of the cards
   document.addEventListener('click', function (event) {
@@ -334,4 +340,37 @@ function getTarget () {
   }
   target = target.trim().replace(' ', '-');
   return target;
+}
+
+function toggleDarkMode() {
+  var btn = document.getElementById('day-night-mode');
+  var sun = document.getElementById('sun-icon');
+  var moon = document.getElementById('moon-icon');
+  var body = document.getElementsByTagName('body')[0];
+
+  if (btn.classList.contains('light')) {
+    body.classList.add('dark-mode');
+    btn.style.backgroundColor = '#1a1a1a';
+    btn.classList.remove('light');
+    btn.classList.add('dark')
+    sun.style.display = 'block';
+    moon.style.display = 'none';
+
+    document.getElementById('title').classList.add('dark-mode-text');
+    document.getElementById('sub-title').classList.add('dark-mode-text');
+    document.getElementById('default-score').classList.add('dark-mode-text');
+    document.getElementById('share-text').classList.add('dark-mode-text');
+
+  } else {
+    body.classList.remove('dark-mode');
+    btn.style.backgroundColor = 'white';
+    btn.classList.add('light');
+    btn.classList.remove('dark')
+    sun.style.display = 'none';
+    moon.style.display = 'block';
+    document.getElementById('title').classList.remove('dark-mode-text');
+    document.getElementById('sub-title').classList.remove('dark-mode-text');
+    document.getElementById('default-score').classList.remove('dark-mode-text');
+    document.getElementById('share-text').classList.remove('dark-mode-text');
+  }
 }
