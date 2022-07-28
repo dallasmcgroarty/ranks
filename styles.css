@@ -35,6 +35,10 @@
     display: none;
 }
 
+.header {
+    position: relative;
+}
+
 #sub-title {
     margin-bottom: 30px;
     font-family: 'Bangers';
