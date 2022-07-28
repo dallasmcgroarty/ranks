@@ -3,6 +3,7 @@
 // use if (ga) to check if google analytics is loaded
 (function (window) {
   retrieveAllPlayers();
+  checkDayNightMode();
 
   document.getElementById('player-input').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -360,6 +361,15 @@ function toggleDarkMode() {
     document.getElementById('sub-title').classList.add('dark-mode-text');
     document.getElementById('default-score').classList.add('dark-mode-text');
     document.getElementById('share-text').classList.add('dark-mode-text');
+    
+    if (typeof (Storage) !== 'undefined') {
+      const mode = {
+        type: 'dark'
+      };
+      
+      window.localStorage.setItem('day-night-mode', JSON.stringify(mode));
+      console.log('dark mode');
+    }
 
   } else {
     body.classList.remove('dark-mode');
@@ -372,5 +382,38 @@ function toggleDarkMode() {
     document.getElementById('sub-title').classList.remove('dark-mode-text');
     document.getElementById('default-score').classList.remove('dark-mode-text');
     document.getElementById('share-text').classList.remove('dark-mode-text');
+    
+    if (typeof (Storage) !== 'undefined') {
+      const mode = {
+        type: 'light'
+      };
+
+      window.localStorage.setItem('day-night-mode', JSON.stringify(mode));
+      console.log('light mode');
+    }
+  }
+}
+
+function checkDayNightMode() {
+  var btn = document.getElementById('day-night-mode');
+  var sun = document.getElementById('sun-icon');
+  var moon = document.getElementById('moon-icon');
+  
+  if (typeof (Storage) !== 'undefined') {
+    var mode = JSON.parse(window.localStorage.getItem('day-night-mode'));
+
+    if (mode && mode['type'] == 'dark') {
+      document.getElementsByTagName('body')[0].classList.add('dark-mode');
+      btn.style.backgroundColor = '#1a1a1a';
+      btn.classList.remove('light');
+      btn.classList.add('dark')
+      sun.style.display = 'block';
+      moon.style.display = 'none';
+
+      document.getElementById('title').classList.add('dark-mode-text');
+      document.getElementById('sub-title').classList.add('dark-mode-text');
+      document.getElementById('default-score').classList.add('dark-mode-text');
+      document.getElementById('share-text').classList.add('dark-mode-text');
+    }
   }
 }
