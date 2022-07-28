@@ -176,7 +176,9 @@ function clearAllPlayers () {
     var players = document.querySelectorAll('.card');
     if (players) {
       players.forEach(e => e.parentNode.removeChild(e));
+      var mode = window.localStorage.getItem('day-night-mode');
       window.localStorage.clear();
+      window.localStorage.setItem('day-night-mode', mode)
       console.log('Players deleted. localStorage cleared');
     } else {
       console.log('No Players present');
