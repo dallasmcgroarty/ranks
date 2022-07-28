@@ -138,7 +138,7 @@ function retrieveAllPlayers () {
       } else {
         var player = JSON.parse(localStorage.getItem(localStorage.key(i)));
       }
-      if (player) {
+      if (player && player['userName']) {
         addNewPlayer(player['userName'], player['userScore']);
       }
     }
