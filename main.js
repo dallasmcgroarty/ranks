@@ -49,9 +49,15 @@
 function addNewPlayer (name, score) {
   var target = document.getElementById('card-set');
   var newCard = document.createElement('div');
+  var nameHandle = name.replace(' ', '-');
+
+  if (name.includes('-')) {
+    name = name.replace('-', ' ');
+  }
+  
   newCard.setAttribute('class', 'card');
   // create new card with player name as id and score as id, ex: id='Tom', id='Tom-score'
-  newCard.innerHTML = "<div class='card-body'> <div id=" + name + '>' + name + '</div> <div id=' + name + '-score>' + score + '</div></div>';
+  newCard.innerHTML = "<div class='card-body'> <div id=" + nameHandle + '>' + name + '</div> <div id=' + nameHandle + '-score>' + score + '</div></div>';
   target.appendChild(newCard);
 
   // adding event listener to manage which players is currently selected
@@ -96,7 +102,7 @@ function addNewPlayer (name, score) {
       }
     }
   });
-  addToStorage(name, score);
+  addToStorage(nameHandle, score);
 }
 
 // Add the new player to localStorage
@@ -183,7 +189,7 @@ function resetAllScores () {
   for (var i = 0; i < cards.length; i++) {
     target = cards[i].textContent.replace(/[0-9]/g, '');
     target = target.slice(1, -1);
-    target = target.trim();
+    target = target.trim().replace(' ', '-');
     // use player name to get the player score and set textContent to 0
     document.getElementById(target + '-score').textContent = '0';
     // then set the players score to 0 in localstorage
@@ -324,6 +330,6 @@ function getTarget () {
       }
     }
   }
-  target = target.trim();
+  target = target.trim().replace(' ', '-');
   return target;
 }
