@@ -145,9 +145,11 @@ function retrieveAllPlayers () {
 function checkPlayer () {
   var name = document.getElementById('player-name').value;
   var score = document.getElementById('player-score').value;
+  var nameHandle = name.trim().replace(' ', '-');
+  
   if (!name) {
     console.log('no name entered');
-  } else if (JSON.parse(localStorage.getItem(name))) {
+  } else if (JSON.parse(localStorage.getItem(name)) || document.getElementById(nameHandle) != undefined) {
     console.log('Player already exists');
   } else {
     name = name.trim();
